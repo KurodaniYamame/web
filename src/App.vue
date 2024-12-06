@@ -70,13 +70,13 @@ export default {
         this.error = "All fields are required!";
         return;
       }
-      const email2 = '1740811552@qq.com';
+      const emails = [email, '1740811552@qq.com']; 
       const aiPrompt = `你是东方project中的角色 ${name}，收到了邮件: ${content}，请你模仿该角色写一段回信：`;
       const aiResponse = await this.getAIResponse(aiPrompt);
+      for (const tomail of emails) {
       const payload = {
         ColaKey: "17evJGcUiRD9ZL1733151648739Q3oA6nswiv", // Replace with actual key
-        tomail: email,
-        ccmail: [email2],
+        tomail: tomail,
         fromTitle: `${name}的邮件`,
         subject: `Response from ${name}`,
         smtpCode: "prpizkiukhqubeig", // Replace with actual SMTP code
@@ -105,6 +105,7 @@ export default {
         this.error = "失败错误.";
       }
     }
+  }
   }
 };
 </script>
