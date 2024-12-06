@@ -24,7 +24,7 @@ export default {
   methods: {
     async getAIResponse(prompt) {
       const apiKey = "tRmWtTcAbHLSKcXWdTwY:YCvvKjKqRQZBQnJZMdAo"; // 替换为你的 API 密钥
-      const apiUrl = "/api/v1/chat/completions"; // 替换为你的 API URL
+      const apiUrl = "/api1/v1/chat/completions"; // 替换为你的 API URL
 
       // 构造请求负载
       const payload = {
