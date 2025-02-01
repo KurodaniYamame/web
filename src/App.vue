@@ -23,12 +23,13 @@ export default {
   },
   methods: {
     async getAIResponse(prompt) {
-      const apiKey = "tRmWtTcAbHLSKcXWdTwY:YCvvKjKqRQZBQnJZMdAo"; // 替换为你的 API 密钥
-      const apiUrl = "/api1/v1/chat/completions"; // 替换为你的 API URL
+      const apiKey = "2Q9neaO4ZRFQAL7RjQc8imVd6iy6PgXfq3a9Y8Wb2qOKbHDgboJPJQQJ99BBAC5T7U2XJ3w3AAAAACOGyrVe"; // 替换为你的 API 密钥
+      const apiUrl = "https://17408-m6m3bu98-francecentral.services.ai.azure.com/models/chat/completions"; // 替换为你的 API URL
 
       // 构造请求负载
       const payload = {
-        model: "4.0Ultra", // 替换为实际的大模型名称
+        "api-version" : "2024-05-01-preview",
+        model: "DeepSeek-R1", // 替换为实际的大模型名称
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7, // 控制生成内容的随机性
       };
@@ -38,7 +39,7 @@ export default {
         const response = await fetch(apiUrl, {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${apiKey}`,
+            'api-key': `${apiKey}`,
             'Content-Type': 'application/json' 
           },
           body: JSON.stringify(payload),
